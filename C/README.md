@@ -1,12 +1,12 @@
-# C-Projects
-This repo contains all of my projects which I made while learning to code in C language.
+# C Projects
+This folder contains all of my projects which I made while learning to code in C language.
 
 # Projects List
 
 Tip - Click on the project name to open its source code file!
 
  1 [Leap Year](https://github.com/thechiragjogani/C-Projects/blob/main/leap-year.c) 
-  - This program is used to find out if the year inputted by user is whether a leap year or not.
+  - This program is used to find out if the year by user input is a leap year or not.
   - **Nested If-else** and **Else If Ladder** implementation.
  
  2 [New Time](https://github.com/thechiragjogani/C-Projects/blob/main/new-time.c) 
