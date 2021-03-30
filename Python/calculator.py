@@ -4,36 +4,36 @@ import sys
 
 
 def add():
-    b = int(input('Please enter the first number:\nroot@cj.py~ '))
-    c = int(input('Please enter the second number:\nroot@cj.py~'))
+    b = int(input('Please enter the first number:\n~ '))
+    c = int(input('Please enter the second number:\n~ '))
     d = b + c
     print('Result:- ' + str(d))
 
 
 def sub():
-    b = int(input('Please enter the first number:\nroot@cj.py~ '))
-    c = int(input('Please enter the second number:\nroot@cj.py~'))
+    b = int(input('Please enter the first number:\n~ '))
+    c = int(input('Please enter the second number:\n~ '))
     d = b - c
     print('Result:- ' + str(d))
 
 
 def div():
-    b = int(input('Please enter the numerator:\nroot@cj.py~ '))
-    c = int(input('Please enter the denominator:\nroot@cj.py~'))
+    b = int(input('Please enter the numerator:\n~ '))
+    c = int(input('Please enter the denominator:\n~ '))
     d = b / c
     print('Result:- ' + str(d))
 
 
 def mul():
-    b = int(input('Please enter the first number:\nroot@cj.py~ '))
-    c = int(input('Please enter the second number:\nroot@cj.py~'))
+    b = int(input('Please enter the first number:\n~ '))
+    c = int(input('Please enter the second number:\n~ '))
     d = b * c
     print('Result:- ' + str(d))
 
 
 def exp():
-    b = int(input('Please enter the base number:\nroot@cj.py~ '))
-    c = int(input('Please enter the exponent:\nroot@cj.py~'))
+    b = int(input('Please enter the base number:\n~ '))
+    c = int(input('Please enter the exponent:\n~ '))
     d = b ** c
     print('Result:- ' + str(d))
 
@@ -48,7 +48,7 @@ def Calculator():
     '''
     print(z)
     l = input(
-        "Please select an option by entering it's corresponding number:\nroot@cj.py~")
+        "Please select an option by entering it's corresponding number:\n~ ")
     if l[0] == '1':
         add()
     elif l[0] == '2':
@@ -73,11 +73,11 @@ def clear():
 
 
 def Greeting():
-    x = input("Please enter your name here:\nroot@cj.py~ ")
+    x = input("Please enter your name here:\n~ ")
     print("Hello, " + x + ".\nWelcome, to my first python program!")
 
     try:
-        input("Press enter to continue            ")
+        input("Press enter to continue \n")
     except SyntaxError:
         pass
 
@@ -85,7 +85,7 @@ def Greeting():
 
 
 def Exit():
-    print("Thank you for using my program, hope we will meet soon! ;)")
+    print("\nThank you for using my program, hope we will meet soon! ;)")
     sys.exit()
 
 
@@ -98,7 +98,7 @@ def main():
     '''
     print(q)
     a = input(
-        "Please select an option by entering it's corresponding number:\nroot@cj.py~")
+        "Please select an option by entering it's corresponding number:\n~ ")
     if a[0] == '1':
         Calculator()
     elif a[0] == "2":
