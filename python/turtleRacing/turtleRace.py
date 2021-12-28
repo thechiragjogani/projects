@@ -5,7 +5,6 @@ import random
 WIDTH, HEIGHT = 600, 600
 COLORS = ['red', 'green', 'blue', 'orange', 'yellow', 'black', 'purple', 'pink', 'brown', 'cyan']
 
-
 def getNumberOfRacers():
     racers = 0
     while True:
@@ -44,7 +43,6 @@ def createTurtles(colors):
         racer.setpos(-WIDTH//2 + (i + 1) * spacingx, -HEIGHT//2 +20)
         racer.pendown()
         turtles.append(racer)
-
     return turtles
 
 def initTurtle():

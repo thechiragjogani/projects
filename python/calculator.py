@@ -97,14 +97,12 @@ def main():
     3) Exit
     '''
     print(q)
-    a = input(
-        "Please select an option by entering it's corresponding number:\n~ ")
+    a = input("Please select an option by entering it's corresponding number:\n~ ")
     if a[0] == '1':
         Calculator()
     elif a[0] == "2":
         Greeting()
     elif a[0] == '3':
         Exit()
-
 
 main()
