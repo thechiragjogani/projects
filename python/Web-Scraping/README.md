@@ -1,4 +1,6 @@
-# A python web scraper project with multi threading and write data to output.csv file
+# Python web scraper project
+
+A python web scraper project with multi-threading and write data to output.csv file.
 
 Steps to run:
 
@@ -9,4 +11,4 @@ pip install -r requirements.txt
 python main.py
 ```
 
-> Replace pip and python with pip3 and python3 respectively if doesn't work.
+> Replace pip and python with pip3 and python3 respectively for python3>
