@@ -1,11 +1,8 @@
-let num1 = randomNumber(0,100)
-let num2 = randomNumber(0,100)
+const num1 = randomNumber(0,100)
+const num2 = randomNumber(0,100)
 
 const livesEl = document.getElementById("lives")
-let lives = JSON.parse(localStorage.getItem("lives")) || 3;
-
-let scoreEl = document.getElementById("score")
-let score = JSON.parse(localStorage.getItem("score"));
+const scoreEl = document.getElementById("score")
 
 const operators = ["*", "+", "-"]
 const operator = randomNumber(0, 3)
@@ -13,20 +10,12 @@ const currentOperator = operators[operator]
 
 const question = document.getElementById("question")
 const input = document.getElementById("input")
-const form = document.getElementById("form")
+const start = document.getElementById("start")
+const submit = document.getElementById("form")
+const restart = document.getElementById("restart")
 
 function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
-}
-
-function currentLives() {
-    lives = JSON.parse(localStorage.getItem("lives"));
-    livesEl.innerText = `LIVES: ${lives}`
-}
-
-function currentScore(){
-    score = JSON.parse(localStorage.getItem("score"));
-    scoreEl.innerText = `SCORE: ${score}`
 }
 
 function currentQuestion(){
@@ -40,11 +29,6 @@ function currentQuestion(){
     else{
         question.innerText = `What is ${num1} ${currentOperator} ${num2}?`
     }
-
-    setTimeout(() => {
-        currentLives();
-        currentScore();
-    }, 1);
 }
 
 
@@ -69,30 +53,53 @@ function checkAnswer(num1, num2, currentOperator, answer){
     }
 }
 
-form.addEventListener("submit", ()=>{
-    const answer = +input.value;
-    checkAnswer(num1, num2, currentOperator, answer);
-})
+function show(){
+    document.getElementById('stats').style.visibility='visible';
+    document.getElementById('input').style.visibility='visible';
+    document.getElementById('submit').style.visibility='visible';
+}
 
-form.addEventListener("reset", ()=>{
-    localStorage.setItem("score", "0")
-    localStorage.setItem("lives", "3")
-    document.getElementById('input').style.visibility='';
-    document.getElementById('submit').style.visibility='';
-    currentQuestion()
-})
+function hide(){
+    document.getElementById('stats').style.visibility='hidden';
+    document.getElementById('input').style.visibility='hidden';
+    document.getElementById('submit').style.visibility='hidden';
+}
+
+function getCurrentScore(){
+    const lives = JSON.parse(localStorage.getItem("lives"));
+    const score = JSON.parse(localStorage.getItem("score"));
+}
 
 function play() {
-    currentLives();
-    currentScore();
+    getCurrentScore();
     if (lives > 0) {
+        livesEl.innerText = `LIVES: ${lives}`
+        scoreEl.innerText = `SCORE: ${score}`
         currentQuestion();
     }
     else if (lives == 0){
-        question.innerText = `Your score: ${score}. Please reset to play again.`
-        document.getElementById('input').style.visibility='hidden';
-        document.getElementById('submit').style.visibility='hidden';
+        hide();
+        question.innerText = `Your score: ${score}. Please reset to play again.`;
     }
 }
 
-play()
+submit.addEventListener("submit", ()=>{
+    const answer = +input.value;
+    checkAnswer(num1, num2, currentOperator, answer)
+})
+
+start.addEventListener("click", ()=>{
+    localStorage.setItem("score", "0")
+    localStorage.setItem("lives", "3")
+    show()
+    play()
+})
+
+restart.addEventListener("click", ()=>{
+    localStorage.setItem("score", "0")
+    localStorage.setItem("lives", "3")
+    show()
+    play()
+})
+
+if(!lives && !score){hide();}

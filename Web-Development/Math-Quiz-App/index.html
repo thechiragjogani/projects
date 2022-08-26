@@ -11,14 +11,17 @@
 
 <body>
     <form class="form" id="form">
-        <div class="stats">
+        <div class="stats" id="stats">
             <h4 class="lives" id="lives">LIVES: 3</h4>
             <h4 class="score" id="score">SCORE: 0</h4>
         </div>
-        <h1 id="question">What is 1 x 1?</h1>
+        <h1 id="question">Welcome to my Math Quiz App, press Start to play!</h1>
         <input type="text" class="input" id="input" placeholder="Enter your answer" autofocus autocomplete="off">
         <button type="submit" class="btn" id="submit">Submit</button>
-        <button type="reset" class="btn-2">Reset</button>
+        <div class="controls">
+            <button class="btn-2" id="start">Start</button>
+            <button class="btn-3" id="restart">Restart</button>
+        </div>
     </form>
     <script src="script.js"></script>
 </body>

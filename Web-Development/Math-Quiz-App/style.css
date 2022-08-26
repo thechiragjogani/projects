@@ -53,11 +53,10 @@ body{
 }
 
 .btn-2{
-    background-color: red;
+    background-color: green;
     color: white;
     border: none;
-    display: block;
-    width: 100%;
+    width: 45%;
     padding: 10px;
     font-size: 20px;
     font-family: cursive;
@@ -68,6 +67,24 @@ body{
 }
 
 .btn-2:hover{
+    filter: brightness(0.9);
+}
+
+.btn-3{
+    background-color: red;
+    color: white;
+    border: none;
+    width: 45%;
+    padding: 10px;
+    font-size: 20px;
+    font-family: cursive;
+    margin: 20px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .3);
+    cursor: pointer;
+}
+
+.btn-3:hover{
     filter: brightness(0.9);
 }
 
@@ -85,4 +102,12 @@ body{
 .stats{
     display: flex;
     margin: 5px 0;
+}
+
+.controls{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
