@@ -2,8 +2,8 @@ function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
 }
 
-let num1 = randomNumber(0,100)
-let num2 = randomNumber(0,100)
+let num1 = randomNumber(0, 100)
+let num2 = randomNumber(0, 100)
 
 const operator = randomNumber(0, 3)
 const operators = ["*", "+", "-"]
@@ -32,10 +32,10 @@ function currentQuestion(){
 
     if (currentOperator == "*"){
         if (num1.toString().length > 1) {
-            num1 = Number(num1.toString()[0]);
+            num1 = randomNumber(2, 25);
         }
         if (num2.toString().length > 1) {
-            num2 = Number(num2.toString()[0]);
+            num2 = randomNumber(2, 25);
         }
         question.innerText = `What is ${num1} ${currentOperator} ${num2}?`
     }
@@ -83,17 +83,15 @@ function play() {
         localStorage.setItem("start", "0");
         localStorage.setItem("score", "0");
         localStorage.setItem("lives", "3");
-        hide()
+        startGame = 0;
         question.innerHTML = `Your score: ${score}<br>Press Restart to play again.`;
+        hide();
     }
 }
 
 form.addEventListener("submit", ()=>{
     const answer = +input.value;
-    console.log(answer);
     checkAnswer(num1, num2, currentOperator, answer);
-    show();
-    play();
 })
 
 function initializeGame() {
@@ -102,6 +100,7 @@ function initializeGame() {
     localStorage.setItem("lives", "3");
     score = 0;
     lives = 3;
+    startGame = 1;
     show();
     play();
 }
@@ -116,7 +115,7 @@ function exitGame(){
     hide()
 }
 
-if(startGame==1){
+if(startGame != 0){
     show();
     play();
 }
