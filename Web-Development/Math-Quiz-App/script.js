@@ -87,6 +87,8 @@ function initializeGame() {
     localStorage.setItem("start", "1");
     localStorage.setItem("score", "0");
     localStorage.setItem("lives", "3");
+    score = 0;
+    lives = 3;
     show();
     play();
 }
@@ -95,7 +97,9 @@ function exitGame(){
     localStorage.setItem("start", "0");
     localStorage.setItem("score", "0");
     localStorage.setItem("lives", "3");
-    question.innerHTML = "Thank you for playing! ❤️<br>Please restart to play again!"
+    score = 0;
+    lives = 3;
+    question.innerHTML = "Thank you for playing! ❤️<br>Please restart to play again!";
     hide()
 }
 
