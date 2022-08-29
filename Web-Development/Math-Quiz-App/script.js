@@ -73,7 +73,7 @@ function play() {
     else if (lives == 0){
         localStorage.setItem("start", "0");
         hide()
-        question.innerHTML = `Your score: ${score}.<br>Please Restart to play again.`;
+        question.innerHTML = `Your score: ${score}.<br>Press Restart to play again.`;
     }
 }
 
