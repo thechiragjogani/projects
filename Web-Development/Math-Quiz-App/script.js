@@ -24,9 +24,13 @@ var score = JSON.parse(localStorage.getItem("score"));
 var startGame = JSON.parse(localStorage.getItem("start"));
 
 function currentQuestion(){
-    if (currentOperator == "*"){
-        num1 = Number(num1.toString().substring(0, num1.toString().length - 1));
-        num2 = Number(num2.toString().substring(0, num2.toString().length - 1));
+    if (currentOperator === "*"){
+        if (num1.toString().length > 1) {
+            num1 = Number(num1.toString().substring(0, num1.toString().length - 1));
+        }
+        else if (num2.toString().length > 1) {
+            num2 = Number(num2.toString().substring(0, num2.toString().length - 1));
+        }
     }
     if (num1 < num2) {
         num1 += num2;
