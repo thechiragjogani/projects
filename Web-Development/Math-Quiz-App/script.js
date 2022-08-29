@@ -95,7 +95,7 @@ function exitGame(){
     localStorage.setItem("start", "0");
     localStorage.setItem("score", "0");
     localStorage.setItem("lives", "3");
-    question.innerText = "Thank you for playing! ❤️"
+    question.innerHTML = "Thank you for playing! ❤️<br>Please restart to play again!"
     hide()
 }
 
