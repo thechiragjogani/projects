@@ -24,18 +24,19 @@ var score = JSON.parse(localStorage.getItem("score"));
 var startGame = JSON.parse(localStorage.getItem("start"));
 
 function currentQuestion(){
-    if (currentOperator === "*"){
-        if (num1.toString().length > 1) {
-            num1 = Number(num1.toString().substring(0, num1.toString().length - 1));
-        }
-        else if (num2.toString().length > 1) {
-            num2 = Number(num2.toString().substring(0, num2.toString().length - 1));
-        }
-    }
     if (num1 < num2) {
         num1 += num2;
         num2 = num1 - num2;
         num1 -= num2;
+    }
+
+    if (currentOperator == "*"){
+        if (num1.toString().length > 1) {
+            num1 = Number(num1.toString()[0]);
+        }
+        if (num2.toString().length > 1) {
+            num2 = Number(num2.toString()[0]);
+        }
         question.innerText = `What is ${num1} ${currentOperator} ${num2}?`
     }
     else{
@@ -80,15 +81,19 @@ function play() {
     }
     else if (lives == 0){
         localStorage.setItem("start", "0");
+        localStorage.setItem("score", "0");
+        localStorage.setItem("lives", "3");
         hide()
-        question.innerHTML = `Your score: ${score}.<br>Press Restart to play again.`;
+        question.innerHTML = `Your score: ${score}<br>Press Restart to play again.`;
     }
 }
 
 form.addEventListener("submit", ()=>{
     const answer = +input.value;
-    console.log(answer)
-    checkAnswer(num1, num2, currentOperator, answer)
+    console.log(answer);
+    checkAnswer(num1, num2, currentOperator, answer);
+    show();
+    play();
 })
 
 function initializeGame() {
