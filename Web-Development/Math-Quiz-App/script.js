@@ -2,12 +2,25 @@ function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
 }
 
-var num1 = randomNumber(0, 100)
-var num2 = randomNumber(0, 100)
-
 const operator = randomNumber(0, 3)
 const operators = ["*", "+", "-"]
-const currentOperator = operators[0]
+const currentOperator = operators[operator]
+
+var num1 = randomNumber(0, 100)
+var num2 = randomNumber(0, 100)
+if (num1 < num2) {
+    num1 += num2;
+    num2 = num1 - num2;
+    num1 -= num2;
+}
+if (currentOperator == "*"){
+    if (num1.toString().length > 1) {
+        num1 = randomNumber(2, 25);
+    }
+    if (num2.toString().length > 1) {
+        num2 = randomNumber(2, 25);
+    }
+}
 
 const livesEl = document.getElementById("lives")
 const scoreEl = document.getElementById("score")
@@ -98,18 +111,5 @@ function exitGame(){
 
 if(startGame != 0){
     show();
-    if (num1 < num2) {
-        num1 += num2;
-        num2 = num1 - num2;
-        num1 -= num2;
-    }
-    if (currentOperator == "*"){
-        if (num1.toString().length > 1) {
-            num1 = randomNumber(2, 25);
-        }
-        if (num2.toString().length > 1) {
-            num2 = randomNumber(2, 25);
-        }
-    }
     play();
 }
