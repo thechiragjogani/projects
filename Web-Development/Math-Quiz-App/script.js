@@ -2,12 +2,12 @@ function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
 }
 
-let num1 = randomNumber(0, 100)
-let num2 = randomNumber(0, 100)
+var num1 = randomNumber(0, 100)
+var num2 = randomNumber(0, 100)
 
 const operator = randomNumber(0, 3)
 const operators = ["*", "+", "-"]
-const currentOperator = operators[operator]
+const currentOperator = operators[0]
 
 const livesEl = document.getElementById("lives")
 const scoreEl = document.getElementById("score")
@@ -21,31 +21,10 @@ const restart = document.getElementById("restart")
 
 var lives = JSON.parse(sessionStorage.getItem("lives"));
 var score = JSON.parse(sessionStorage.getItem("score"));
-var startGame = JSON.parse(sessionStorage.getItem("start"));
-
-function currentQuestion(){
-    if (num1 < num2) {
-        num1 += num2;
-        num2 = num1 - num2;
-        num1 -= num2;
-    }
-
-    if (currentOperator == "*"){
-        if (num1.toString().length > 1) {
-            num1 = randomNumber(2, 25);
-        }
-        if (num2.toString().length > 1) {
-            num2 = randomNumber(2, 25);
-        }
-        question.innerText = `What is ${num1} ${currentOperator} ${num2}?`
-    }
-    else{
-        question.innerText = `What is ${num1} ${currentOperator} ${num2}?`
-    }
-}
+var startGame = JSON.parse(sessionStorage.getItem("start")) || 0;
 
 function checkAnswer(num1, num2, currentOperator, answer){
-    let correctAnswer = 0;
+    var correctAnswer = 0;
     switch(currentOperator){
         case "*":
             correctAnswer = num1 * num2;
@@ -64,6 +43,7 @@ function checkAnswer(num1, num2, currentOperator, answer){
 function show(){
     stats.style.visibility='visible';
     input.style.visibility='visible';
+    input.placeholder='Enter your answer!';
     submit.style.visibility='visible';
 }
 
@@ -74,10 +54,11 @@ function hide(){
 }
 
 function play() {
+    question.innerText = `What is ${num1} ${currentOperator} ${num2}?`
+    question.innerText = `What is ${num1} ${currentOperator} ${num2}?`
     if (lives > 0) {
         livesEl.innerText = `LIVES: ${lives}`;
         scoreEl.innerText = `SCORE: ${score}`;
-        currentQuestion();
     }
     else if (lives == 0){
         sessionStorage.setItem("start", "0");
@@ -117,5 +98,18 @@ function exitGame(){
 
 if(startGame != 0){
     show();
+    if (num1 < num2) {
+        num1 += num2;
+        num2 = num1 - num2;
+        num1 -= num2;
+    }
+    if (currentOperator == "*"){
+        if (num1.toString().length > 1) {
+            num1 = randomNumber(2, 25);
+        }
+        if (num2.toString().length > 1) {
+            num2 = randomNumber(2, 25);
+        }
+    }
     play();
 }
