@@ -19,9 +19,9 @@ const submit = document.getElementById("submit")
 const form = document.getElementById("form")
 const restart = document.getElementById("restart")
 
-var lives = JSON.parse(localStorage.getItem("lives"));
-var score = JSON.parse(localStorage.getItem("score"));
-var startGame = JSON.parse(localStorage.getItem("start"));
+var lives = JSON.parse(sessionStorage.getItem("lives"));
+var score = JSON.parse(sessionStorage.getItem("score"));
+var startGame = JSON.parse(sessionStorage.getItem("start"));
 
 function currentQuestion(){
     if (num1 < num2) {
@@ -57,8 +57,8 @@ function checkAnswer(num1, num2, currentOperator, answer){
             correctAnswer = num1 - num2;
             break;
     }
-    if (answer == correctAnswer) {localStorage.setItem("score", JSON.stringify(++score));}
-    else {localStorage.setItem("lives", JSON.stringify(--lives));}
+    if (answer == correctAnswer) {sessionStorage.setItem("score", JSON.stringify(++score));}
+    else {sessionStorage.setItem("lives", JSON.stringify(--lives));}
 }
 
 function show(){
@@ -80,9 +80,9 @@ function play() {
         currentQuestion();
     }
     else if (lives == 0){
-        localStorage.setItem("start", "0");
-        localStorage.setItem("score", "0");
-        localStorage.setItem("lives", "3");
+        sessionStorage.setItem("start", "0");
+        sessionStorage.setItem("score", "0");
+        sessionStorage.setItem("lives", "3");
         startGame = 0;
         question.innerHTML = `Your score: ${score}<br>Press Restart to play again.`;
         hide();
@@ -95,9 +95,9 @@ form.addEventListener("submit", ()=>{
 })
 
 function initializeGame() {
-    localStorage.setItem("start", "1");
-    localStorage.setItem("score", "0");
-    localStorage.setItem("lives", "3");
+    sessionStorage.setItem("start", "1");
+    sessionStorage.setItem("score", "0");
+    sessionStorage.setItem("lives", "3");
     score = 0;
     lives = 3;
     startGame = 1;
@@ -106,9 +106,9 @@ function initializeGame() {
 }
 
 function exitGame(){
-    localStorage.setItem("start", "0");
-    localStorage.setItem("score", "0");
-    localStorage.setItem("lives", "3");
+    sessionStorage.setItem("start", "0");
+    sessionStorage.setItem("score", "0");
+    sessionStorage.setItem("lives", "3");
     score = 0;
     lives = 3;
     question.innerHTML = "Thank you for playing! ❤️<br>Please restart to play again!";
