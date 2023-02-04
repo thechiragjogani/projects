@@ -1,0 +1,131 @@
+.dash-container {
+    height: 100%;
+}
+
+.amount-menu {
+    max-width: 800px;
+    margin: 0px auto;
+    width: 100%;
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.amount {
+    flex-direction: column;
+}
+
+.amount p {
+    margin-top: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000;
+}
+
+.amount span {
+    font-family: monospace;
+    font-weight: bold;
+}
+
+.income span {
+    color: #0073e5;
+}
+
+.expense span {
+    color: rgb(212, 82, 82)
+}
+
+.total span {
+    color: rgb(60, 60, 60)
+}
+
+/* transaction file css  */
+.transaction-lists {
+    margin-top: 43px;
+    height: 100%;
+    overflow: auto;
+    padding-bottom: 150px;
+}
+
+.transaction-lists::-webkit-scrollbar {
+    display: none;
+}
+
+.date-amount {
+    display: flex;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    padding: 2px 5px;
+    margin-top: -1px;
+    margin-bottom: 2px;
+    border-top: 1px solid rgb(192, 191, 191);
+    border-bottom: 1px solid rgb(192, 191, 191);
+}
+
+.transaction-date {
+    padding: 3px;
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+
+.week-day {
+    margin-bottom: 3px;
+}
+
+.week-day span:first-child {
+    font-weight: bold;
+    margin-right: 3px;
+}
+
+.week-day span:last-child {
+    background-color: rgb(246, 93, 93);
+    border-radius: 3px;
+    font-size: 11px;
+    padding: 2px;
+    color: #fff;
+    display: inline-block;
+    width: 30px;
+    text-align: center;
+    
+}
+
+.transaction-date span:last-child {
+    font-size: 12px;
+}
+
+/* ------- */
+.payment-method {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    gap: 3px;
+}
+
+.payment-method span:last-child {
+    font-size: 11px;
+    background-color: #0073e5;
+    padding: 2px 4px;
+    border-radius: 3px;
+    color: #fff;
+    width: fit-content;
+    font-weight: bold;
+}
+
+.inc-amount {
+    padding: 3px;
+    display: flex;
+    flex: 1;
+    font-size: 13px;
+    color: #0073e5;
+}
+
+.exc-amount {
+    padding: 3px;
+    display: flex;
+    flex-direction: row-reverse;
+    flex: 1;
+    font-size: 13px;
+    color: rgb(234, 5, 5);
+}

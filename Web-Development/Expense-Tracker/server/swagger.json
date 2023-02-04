@@ -1,0 +1,201 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Expence Tracker",
+        "description": "Personal ET where you can add and track your daily expences and income.",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "host": "localhost:8090",
+    "basePath": "/",
+    "securityDefinitions": {
+        "Authorization": {
+            "type": "apiKey",
+            "name": "authorization",
+            "in": "header",
+            "description": "The token for authentication"
+        }
+    },
+    "tags": [
+        {
+            "name": "User",
+            "description": "API for user authtication"
+        },
+        {
+            "name": "Transaction",
+            "description": "API for add and get the transactions."
+        }
+    ],
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/sign-in": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Sign-In and get the access token.",
+                "parameters": [
+                    {
+                        "name": "Sign in",
+                        "in": "body",
+                        "description": "sign-in parameters",
+                        "schema": {
+                            "$ref": "#/definitions/Sign-In"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully sign-in!"
+                    }
+                }
+            }
+        },
+        "/sign-up": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Sign-Up to get register in system.",
+                "parameters": [
+                    {
+                        "name": "Sign up",
+                        "in": "body",
+                        "description": "sign-up parameters",
+                        "schema": {
+                            "$ref": "#/definitions/Sign-Up"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully sign-up!"
+                    }
+                }
+            }
+        },
+        "/transaction": {
+            "get": {
+                "tags": [
+                    "Transaction"
+                ],
+                "summary": "Get all transactions.",
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "list of transactions"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Transaction"
+                ],
+                "summary": "Create new transaction.",
+                "security": [
+                    {
+                        "Authorization": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "Add Transaction",
+                        "in": "body",
+                        "description": "Create new transaction.",
+                        "schema": {
+                            "$ref": "#/definitions/New-Transaction"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Transaction created successfully!"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Sign-In": {
+            "required": [
+                "email",
+                "password"
+            ],
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "Sign-Up": {
+            "required": [
+                "name",
+                "email",
+                "password"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "New-Transaction": {
+            "required": [
+                "date",
+                "method",
+                "amount"
+            ],
+            "properties": {
+                "date": {
+                    "type": "string"
+                },
+                "method": {
+                    "type": "string"
+                },
+                "amount": {
+                    "type": "string"
+                },
+                "desc": {
+                    "type": "string"
+                },
+                "income": {
+                    "type": "boolean"
+                },
+                "expence": {
+                    "type": "boolean"
+                }
+            }
+        }
+    }
+}
