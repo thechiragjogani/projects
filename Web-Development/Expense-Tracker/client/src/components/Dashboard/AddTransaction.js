@@ -184,7 +184,7 @@ fetch('/transaction', {method: "POST", headers: {'Content-Type': 'application/js
                             onChange={chengeTransaction}
                             color='warning'
                         />
-                    } label="Expence" />
+                    } label="Expense" />
                 </Box>
             </DialogContent>
             <DialogActions>

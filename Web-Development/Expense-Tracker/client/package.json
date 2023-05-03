@@ -1,5 +1,6 @@
 {
   "name": "client",
+  "homepage": "https://thechiragjogani.github.io/projects/Web-Development/Expense-Tracker",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:8080",
@@ -10,7 +11,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
-    "react-scripts": "5.0.1"
+    "react-scripts": "5.0.1",
+    "gh-pages": "^5.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

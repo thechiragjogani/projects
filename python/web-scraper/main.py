@@ -80,6 +80,7 @@ def getDoctorInfo(pageNo):
 
 
 if __name__ == "__main__":
+
     URL = "https://www.stfrancismedicalcenter.com"
     header = ["Full_Name", "Specialty", "Add_Specialty", "Full_Address", "Practice", "Address", "City", "State", "Zip", "Phone", "URL"]
     outputFile = open("output.csv", "w", newline="")
@@ -94,5 +95,4 @@ if __name__ == "__main__":
     # Creating and starting threads for each page
     with concurrent.futures.ThreadPoolExecutor(max_workers=end) as executor:
         executor.map(getDoctorInfo, range(start, end+1))
-
     print("\nProgram completed successfully, check output.csv in current directory.")
